@@ -5,10 +5,14 @@
 #include "token.h"
 #include "lexer.h"
 
+#define MAX_VARIABLES 100
+
 typedef struct {
     FILE* output_file;
     Token current_token;
     int indent_level;
+    char variables[MAX_VARIABLES][MAX_TOKEN_LEN];
+    int variable_count;
 } Parser;
 
 Parser* parser_create(FILE* output_file);

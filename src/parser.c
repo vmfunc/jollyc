@@ -7,11 +7,28 @@ Parser* parser_create(FILE* output_file) {
     Parser* parser = malloc(sizeof(Parser));
     parser->output_file = output_file;
     parser->indent_level = 0;
+    parser->variable_count = 0;
     return parser;
 }
 
 void parser_destroy(Parser* parser) {
     free(parser);
+}
+
+static int is_variable_declared(Parser* parser, const char* var_name) {
+    for (int i = 0; i < parser->variable_count; i++) {
+        if (strcmp(parser->variables[i], var_name) == 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+static void add_variable(Parser* parser, const char* var_name) {
+    if (parser->variable_count < MAX_VARIABLES) {
+        strcpy(parser->variables[parser->variable_count], var_name);
+        parser->variable_count++;
+    }
 }
 
 static void write_indentation(Parser* parser) {
@@ -43,6 +60,7 @@ void parser_generate_code(Parser* parser, Lexer* lexer) {
             case PRESENTS:
                 parser->current_token = lexer_next_token(lexer);
                 fprintf(parser->output_file, "int %s;\n", parser->current_token.value);
+                add_variable(parser, parser->current_token.value);
                 break;
                 
             case SLEIGH:
@@ -86,8 +104,12 @@ void parser_generate_code(Parser* parser, Lexer* lexer) {
                     char var_name[MAX_TOKEN_LEN];
                     strcpy(var_name, parser->current_token.value);
                     parser->current_token = lexer_next_token(lexer);
-                    fprintf(parser->output_file, "%s = %s;\n", var_name, 
-                            parser->current_token.value);
+                    if (!is_variable_declared(parser, var_name)) {
+                        fprintf(parser->output_file, "int %s;\n", var_name);
+                        add_variable(parser, var_name);
+                    }
+                    write_indentation(parser);
+                    fprintf(parser->output_file, "%s = %s;\n", var_name, parser->current_token.value);
                 }
                 break;
                 
