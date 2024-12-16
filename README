@@ -1,0 +1,41 @@
+    ╔══════════════════════════════════════════════════════════════════════════════╗
+    ║                                   JollyC                                     ║
+    ╚══════════════════════════════════════════════════════════════════════════════╝
+
+    ▐ OVERVIEW ▐═══════════════════════════════════════════════════════════════════╗
+    │                                                                              │
+    │ JollyC is a C-based metalang for a christmas-themed                          │
+    │ programming language. It features festive syntax tokens and holiday-         │
+    │ inspired programming constructs.                                             │
+    │                                                                              │
+    ╠──────────────────────────────────────────────────────────────────────────────╣
+
+    ▐ TECHNICAL SPECIFICATIONS ▐═══════════════════════════════════════════════════╗
+    │                                                                              │
+    │ LEXICAL TOKENS:                                                              │
+    │ ├─ SANTA     : Program entry point                                           │
+    │ ├─ RUDOLPH   : Control flow                                                  │
+    │ ├─ PRESENTS  : Variable declaration                                          │
+    │ ├─ SLEIGH    : Function definition                                           │
+    │ ├─ REINDEER  : Loop construct                                                │
+    │ ├─ MISTLETOE : Conditional branching                                         │
+    │ ├─ STAR      : Return statement                                              │
+    │ ├─ BELL      : I/O operations                                                │
+    │ ├─ WREATH    : Scope delimiter                                               │
+    │ ├─ HOLLY     : Numeric literal                                               │
+    │ └─ TINSEL    : String literal/Identifier                                     │
+    │                                                                              │
+    ╠──────────────────────────────────────────────────────────────────────────────╣
+
+    ▐ BUILD INSTRUCTIONS ▐═══════════════════════════════════════════════════════════╗
+    │                                                                                │
+    │ 1. Clone the repository:                                                       │
+    │    git clone https://github.com/vmfunc/jollyc.git                              │
+    │                                                                                │
+    │ 2. Build the compiler:                                                         │
+    │    make                                                                        │
+    │                                                                                │
+    │ 3. Compile a JollyC program:                                                   │
+    │    ./jollyc source.jc                                                          │
+    │                                                                                │
+    ╠────────────────────────────────────────────────────────────────────────────────╣
