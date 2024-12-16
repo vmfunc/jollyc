@@ -62,7 +62,6 @@ dkms.conf
 *.swo
 
 # JollyC
-*.jc
 jollyc
 
 # OS specific
