@@ -1,0 +1,29 @@
+santa main
+presents n
+presents first
+presents second
+presents next
+presents i
+
+wreath n 10
+wreath first 0
+wreath second 1
+
+star "Fibonacci Sequence:"
+star first
+star second
+
+sleigh 8
+    wreath next first + second
+    wreath first second
+    wreath second next
+    star next
+bell
+
+reindeer n
+    star "Sequence complete!"
+mistletoe
+    star "Error: Invalid input"
+bell
+
+rudolph
